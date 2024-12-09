@@ -1,0 +1,277 @@
+{
+    "resources":
+      ["h_file", "h_event", "h_thread"]
+    ,
+    "ntdll!NtOpenFile":{
+      "debug":0,
+      "argnum":6,
+      "sysnum":51,
+      "arg1":{"type":"ptr", "content": {"type" : "resource" , "rsc_type" : "h_file", "inout":"out"}},
+      "arg2":{"type":"scalar", "width":4 , "inout":"in"},
+      "arg3":{"type":"ptr", "content":
+      {"type":"struct", "fieldcount":6, "fields":[
+          {"offset":0, "content":{"type":"scalar", "width":4, "inout":"in"}},
+          {"offset":4, "content":{"type":"ptr", "content" : {"type" : "resource" , "rsc_type" : "h_file" , "inout":"in"}}},
+          {"offset":8, "content":{"type":"ptr", "content":
+              {"type":"struct", "fieldcount":3, "fields":[
+                  {"offset":0, "content":{"type":"scalar", "width":2 , "inout":"in"}},
+                  {"offset":2, "content":{"type":"scalar", "width":2 , "inout":"in"}},
+                  {"offset":4, "content":{"type":"ptr", "content":
+                  {"type":"stringw"}
+                  }}
+              ]
+              }
+          }},
+          {"offset":12, "content":{"type":"scalar", "width":4, "inout":"in"}},
+          {"offset":16, "content":{"type":"ptr", "content":
+              {"type":"scalar", "width":4, "inout":"out"}
+          }},
+          {"offset":20, "content":{"type":"ptr", "content":
+              {"type":"scalar", "width":4, "inout":"in"}
+          }}
+          ]
+      }
+      },
+      "arg4":{"type":"ptr", "content":
+      {"type":"struct", "fieldcount":2, "fields":[
+          {"offset":0, "content":{"type":"ptr", "content":
+              {"type":"scalar", "width":4,"inout":"in"}
+          }},
+          {"offset":4, "content":{"type":"scalar", "width":4, "inout":"in"}}
+          ]
+      }
+      },
+      "arg5":{"type":"scalar", "width":4, "inout":"in"},
+      "arg6":{"type":"scalar", "width":4, "inout":"in"}
+  },
+  
+  "ntdll!NtQueryInformationFile":{
+      "debug":0,
+      "argnum":5,
+      "sysnum":188,
+      "arg1":{"type" : "resource" , "rsc_type" : "h_file" , "inout":"in"},
+      "arg2":{"type":"ptr", "content":
+        {"type":"struct", "fieldcount":2, "fields":[
+            {"offset":0, "content":{"type":"ptr", "content":
+              {"type":"scalar", "width":4, "inout":"in"}
+            }},
+            {"offset":4, "content":{"type":"scalar", "width":4, "inout":"in"}}
+          ]
+        }
+      },
+      "arg3":{"type":"ptr", "content":
+        {"type":"array", "countkind":"byte", "size":{"kind":"argfield", "idx":3, "offsets":[]}, "width":4, "content":
+          {"type":"scalar", "width":4, "inout":"out"}
+        }
+      },
+      "arg4":{"type":"scalar", "width":4, "inout":"in"},
+      "arg5":{"type":"scalar", "width":4, "inout":"in"}
+  },
+  
+  "ntdll!NtQuerySecurityObject":{
+    "debug":0,
+    "argnum":5,
+    "sysnum":348,
+    "arg1":{"type":"resource", "rsc_type" : ["h_file", "h_event"], "inout":"in"},
+    "arg2":{"type":"scalar", "width":4 ,"inout":"in"},
+    "arg3":{"type":"ptr", "content":
+      {"type":"struct", "fieldcount":7, "fields":[
+          {"offset":0, "content":{"type":"scalar", "width":1, "inout":"out"}},
+          {"offset":1, "content":{"type":"scalar", "width":1, "inout":"out"}},
+          {"offset":2, "content":{"type":"scalar", "width":2, "inout":"out"}},
+          {"offset":4, "content":{"type":"ptr",  "content":
+            {"type":"struct", "fieldcount":4, "fields":[
+                {"offset":0, "content":{"type":"scalar", "width":1,"inout":"in"}},
+                {"offset":1, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":2, "content":{"type":"struct", "fieldcount":1, "fields":[
+                    {"offset":0, "content":{"type":"array", "countkind":"elem", "size":{"kind":"fixed", "val":6}, "width":1, "content":
+                      {"type":"scalar", "width":1, "inout":"in"}
+                    }}
+                  ]
+                }},
+                {"offset":8, "content":{"type":"array", "countkind":"elem", "size":{"kind":"adjacentfield", "offsets":[1]}, "width":4, "content":
+                  {"type":"scalar", "width":4, "inout":"in"}
+                }}
+              ]
+            }
+          }},
+          {"offset":8, "content":{"type":"ptr", "content":
+            {"type":"struct", "fieldcount":4, "fields":[
+                {"offset":0, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":1, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":2, "content":{"type":"struct", "fieldcount":1, "fields":[
+                    {"offset":0, "content":{"type":"array", "countkind":"elem", "size":{"kind":"fixed", "val":6}, "width":1, "content":
+                      {"type":"scalar", "width":1, "inout":"in"}
+                    }}
+                  ]
+                }},
+                {"offset":8, "content":{"type":"array", "countkind":"elem", "size":{"kind":"adjacentfield", "offsets":[1]}, "width":4, "content":
+                  {"type":"scalar", "width":4, "inout":"in"}
+                }}
+              ]
+            }
+          }},
+          {"offset":12, "content":{"type":"ptr","content":
+            {"type":"struct", "fieldcount":5, "fields":[
+                {"offset":0, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":1, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":2, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":4, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":6, "content":{"type":"scalar", "width":2, "inout":"in"}}
+              ]
+            }
+          }},
+          {"offset":16, "content":{"type":"ptr", "content":
+            {"type":"struct", "fieldcount":5, "fields":[
+                {"offset":0, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":1, "content":{"type":"scalar", "width":1, "inout":"in"}},
+                {"offset":2, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":4, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":6, "content":{"type":"scalar", "width":2, "inout":"in"}}
+              ]
+            }
+          }}
+        ]
+      }
+    },
+    "arg4":{"type":"scalar", "width":4, "inout":"in"},
+    "arg5":{"type":"ptr", "content":
+      {"type":"scalar", "width":4, "inout":"out"}
+    }
+  },
+  
+  "ntdll!NtSetInformationFile":{
+      "debug":0,
+      "argnum":5,
+      "sysnum":83,
+      "arg1":{"type" : "resource" , "rsc_type" : "h_file" , "inout":"in"},
+      "arg2":{"type":"ptr", "content":
+      {"type":"struct", "fieldcount":2, "fields":[
+          {"offset":0, "content":{"type":"ptr","content":
+              {"type":"scalar", "width":4, "inout":"in"}
+          }},
+          {"offset":4, "content":{"type":"scalar", "width":4, "inout":"in"}}
+          ]
+      }
+      },
+      "arg3":{"type":"ptr",  "content":
+      {"type":"array", "countkind":"byte", "size":{"kind":"argfield", "idx":3, "offsets":[]}, "width":4, "content":
+          {"type":"scalar", "width":4, "inout":"in"}
+      }
+      },
+      "arg4":{"type":"scalar", "width":4, "inout":"in"},
+      "arg5":{"type":"scalar", "width":4, "inout":"in"}
+  },
+  
+  "ntdll!NtReadFile":{
+      "debug":0,
+      "argnum":9,
+      "sysnum":142,
+      "arg1":{"type" : "resource" , "rsc_type" : "h_file" , "inout":"in"},
+      "arg2":{"type" : "resource" , "rsc_type" : "h_event", "inout":"in"},
+      "arg3":{"type":"funcptr"},
+      "arg4":{"type":"ptr", "content":
+        {"type":"scalar", "width":4, "inout":"in"}
+      },
+      "arg5":{"type":"ptr", "content":
+        {"type":"struct", "fieldcount":2, "fields":[
+            {"offset":0, "content":{"type":"ptr", "content":
+              {"type":"scalar", "width":4, "inout":"in"}
+            }},
+            {"offset":4, "content":{"type":"scalar", "width":4, "inout":"in"}}
+          ]
+        }
+      },
+      "arg6":{"type":"ptr",  "content":
+        {"type":"array", "countkind":"byte", "size":{"kind":"argfield", "idx":6, "offsets":[]}, "width":4, "content":
+          {"type":"scalar", "width":4 , "inout" : "out"}
+        }
+      },
+      "arg7":{"type":"scalar", "width":4},
+      "arg8":{"type":"ptr",  "content":
+        {"type":"scalar", "width":8 , "inout":"in"}
+      },
+      "arg9":{"type":"ptr",  "content":
+        {"type":"scalar", "width":4 , "inout":"in"}
+      }
+  },
+  
+  "ntdll!NtClose":{
+    "debug":0,
+    "argnum":1,
+    "sysnum":397,
+    "arg1" : {"type" : "resource", "rsc_type" : ["h_file", "h_event"], "inout" : "in"}
+  },
+  "ntdll!NtCreateEvent":{
+    "debug":0,
+    "argnum":5,
+    "sysnum":378,
+    "arg1":{"type":"ptr", "content": {"type" : "resource" , "rsc_type" : "h_event" , "inout":"out"}},
+    "arg2":{"type":"scalar", "width":4, "inout":"in"},
+    "arg3":{"type":"ptr",  "content":
+      {"type":"struct", "fieldcount":6, "fields":[
+          {"offset":0, "content":{"type":"scalar", "width":4, "inout":"in"}},
+          {"offset":4, "content":{"type":"resource", "rsc_type" : "h_file", "width":4, "inout":"in"}},
+          {"offset":8, "content":{"type":"ptr", "content":
+            {"type":"struct", "fieldcount":3, "fields":[
+                {"offset":0, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":2, "content":{"type":"scalar", "width":2, "inout":"in"}},
+                {"offset":4, "content":{"type":"ptr", "content":
+                  {"type":"stringw"}
+                }}
+              ]
+            }
+          }},
+          {"offset":12, "content":{"type":"scalar", "width":4, "inout":"in"}},
+          {"offset":16, "content":{"type":"ptr", "content":
+            {"type":"scalar", "width":4, "inout":"in"}
+          }},
+          {"offset":20, "content":{"type":"ptr", "content":
+            {"type":"scalar", "width":4, "inout":"in"}
+          }}
+        ]
+      }
+    },
+    "arg4":{"type":"scalar", "width":4, "inout":"in"},
+    "arg5":{"type":"scalar", "width":1, "inout":"in"}
+  },
+  "ntdll!NtQueueApcThread":{
+    "debug":0,
+    "argnum":5,
+    "sysnum":146,
+    "arg1":{"type" : "resource" , "rsc_type" : "h_thread" , "inout":"in"},
+    "arg2":{"type":"scalar", "width":4, "inout":"in"},
+    "arg3":{"type":"ptr", "content":
+      {"type":"struct", "fieldcount":1, "fields":[
+          {"offset":0, "content":{"type" : "resource" , "rsc_type" : "h_thread", "inout":"in"}}
+        ]
+      }
+    },
+    "arg4":{"type":"scalar", "width":4, "inout":"in"},
+    "arg5":{"type":"scalar", "width":4, "inout":"in"}
+  },
+  "ntdll!NtOpenThread":{
+    "debug":0,
+    "argnum":4,
+    "sysnum":224,
+    "arg1":{"type":"ptr", "content":
+        {"type":"struct", "fieldcount":1, "fields":[
+            {"offset":0, "content":{"type" : "resource" , "rsc_type" : "h_thread" , "inout":"out"}}
+        ]
+        }
+    },
+    "arg2":{"type":"scalar", "width":4, "inout":"in"},
+    "arg3":{"type":"ptr", "content":
+        {"type":"array", "countkind":"byte", "size":{"kind":"argfield", "idx":2, "offsets":[0]}, "width":4, "content":
+        {"type":"scalar", "width":4, "inout":"in"}
+        }
+    },
+    "arg4":{"type":"ptr", "content":
+        {"type":"struct", "fieldcount":2, "fields":[
+            {"offset":0, "content":{"type":"scalar", "width":4, "inout":"in"}},
+            {"offset":4, "content":{"type":"scalar", "width":4, "inout":"in"}}
+        ]
+        }
+    }
+    }
+  }
