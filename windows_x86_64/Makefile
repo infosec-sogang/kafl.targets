@@ -9,12 +9,12 @@ $(ROOT_DIR)/venv/bin/ansible-playbook:
 
 ansible: $(ROOT_DIR)/venv/bin/ansible-playbook
 
-setup:
+repair:
 	cp /root/.local/share/libvirt/images/* /var/lib/libvirt/images 
 	rm -rf /root/.local/share/libvirt/images/*
 	virsh pool-define-as --name kafl_pool --type dir --target /var/lib/libvirt/images
- 	virsh pool-autostart kafl_pool
- 	virsh pool-start kafl_pool
+	virsh pool-autostart kafl_pool
+	virsh pool-start kafl_pool
 
 init:
 	vagrant up --no-provision
