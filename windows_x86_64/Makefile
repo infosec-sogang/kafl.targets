@@ -9,14 +9,19 @@ $(ROOT_DIR)/venv/bin/ansible-playbook:
 
 ansible: $(ROOT_DIR)/venv/bin/ansible-playbook
 
+setup:
+	cp /root/.local/share/libvirt/images/* /var/lib/libvirt/images 
+	rm -rf /root/.local/share/libvirt/images/*
+	virsh pool-define-as --name kafl_pool --type dir --target /var/lib/libvirt/images
+ 	virsh pool-autostart kafl_pool
+ 	virsh pool-start kafl_pool
+
 init:
 	vagrant up --no-provision
 	vagrant snapshot save 'ready_provision'
 
 compile:
-	mkdir -p bin/{userspace,driver}
-	x86_64-w64-mingw32-gcc src/userspace/selffuzz_test.c -I ../ -o bin/userspace/selffuzz_test.exe -Wall -mwindows 
-	x86_64-w64-mingw32-gcc src/driver/vuln_test.c -I ../ -o bin/driver/vuln_test.exe -Wall -lntdll -lpsapi
+	$(MAKE) -C src/NtExecutor all
 
 provision_userspace: compile ansible
 	vagrant snapshot restore 'ready_provision'

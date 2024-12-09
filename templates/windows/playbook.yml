@@ -106,11 +106,11 @@
       args:
         chdir: "{{ ansible_facts['env']['TEMP'] }}"
 
-    - name: install WDK VSIX extension
-      win_command:
-        cmd: "{{ vsix_installer | ansible.windows.quote }} /quiet /admin /logFile:C:\\wdk_vsix.log WDK.vsix"
-      args:
-        chdir: "{{ wdk_vsix_dir }}"
+    # - name: install WDK VSIX extension
+    #   win_command:
+    #     cmd: "{{ vsix_installer | ansible.windows.quote }} /quiet /admin /logFile:C:\\wdk_vsix.log WDK.vsix"
+    #   args:
+    #     chdir: "{{ wdk_vsix_dir }}"
 
     - name: Enable Testsigning
       win_command: Bcdedit.exe -set TESTSIGNING ON
